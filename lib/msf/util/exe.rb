@@ -1100,6 +1100,17 @@ require 'msf/core/exe/segment_appender'
     to_exe_elf(framework, opts, "template_x64_linux.bin", code)
   end
 
+  # Create a 32-bit Linux ELF_DYN containing the payload provided in +code+
+  #
+  # @param framework [Msf::Framework]
+  # @param code       [String]
+  # @param opts       [Hash]
+  # @option           [String] :template
+  # @return           [String] Returns an elf
+  def self.to_linux_x86_elf_dll(framework, code, opts = {})
+    to_exe_elf(framework, opts, "template_x86_linux_dll.bin", code)
+  end
+
   # Create a 64-bit Linux ELF_DYN containing the payload provided in +code+
   #
   # @param framework [Msf::Framework]
@@ -1111,7 +1122,7 @@ require 'msf/core/exe/segment_appender'
     to_exe_elf(framework, opts, "template_x64_linux_dll.bin", code)
   end
 
-  # self.to_linux_mipsle_elf
+  # self.to_linux_armle_elf
   #
   # @param framework [Msf::Framework]
   # @param code       [String]
@@ -1120,6 +1131,17 @@ require 'msf/core/exe/segment_appender'
   # @return           [String] Returns an elf
   def self.to_linux_armle_elf(framework, code, opts = {})
     to_exe_elf(framework, opts, "template_armle_linux.bin", code)
+  end
+
+  # self.to_linux_aarch64_elf
+  #
+  # @param framework [Msf::Framework]
+  # @param code       [String]
+  # @param opts       [Hash]
+  # @option           [String] :template
+  # @return           [String] Returns an elf
+  def self.to_linux_aarch64_elf(framework, code, opts = {})
+    to_exe_elf(framework, opts, "template_aarch64_linux.bin", code)
   end
 
   # self.to_linux_mipsle_elf
